@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cd \"c:\\\\Users\\\\polar.KINGSTEEL\\\\dev\\\\polar-tsai.github.io\"; & \".\\\\node_modules\\\\.bin\\\\astro.exe\" build; Write-Output \"EXITCODE=$LASTEXITCODE\")"
+    ]
+  }
+}
