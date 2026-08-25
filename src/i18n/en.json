@@ -1,7 +1,8 @@
 {
   "locale": "en",
   "doing": {
-    "recently": "Recently"
+    "recently": "Recently",
+    "empty": "This will grow as I keep recording. 🌱"
   },
   "heatmap": {
     "totalPosts": "Total posts",

@@ -118,12 +118,12 @@ pageview = true
 comment = true
 
 [config.profile]
-name = "navfolio"
+name = "polarvista"
 handle = "@navfolio"
-role = "A Cat Developer"
+role = "Build Something Cool"
 email = "hello@navfolio.site"
-website = "https://astro.navfolio.site/"
-github = "https://github.com/dodolalorc/astro-navfolio"
+website = "https://polar-tsai.github.io/"
+github = "https://github.com/Polar-Tsai"
 avatar = "/images/logo-thin.webp"
 
 [[config.topNav.links]]
@@ -154,21 +154,20 @@ href = "/about"
 
 [config.home.quote]
 text = [
-  "Navigate your world,",
-  "Showcase your story,",
-  "and keep everything in one place.",
+  "Hi, this is PolarVista",
+  "— where curiosity takes shape, and stays.",
 ]
 
 [config.home.intro]
-title = "here is navfolio"
-name = "navfolio"
+title = "Polar Vista"
+name = "Polar Vista"
 body = [
-  "The name combines \"Navigation\" and \"Portfolio\".",
-  "Navfolio prioritizes lightweight organization, seamless reading, and developer-friendly aesthetics.",
-  "It’s less a resume than a personal OS for your ideas, projects, notes, and online presence.",
-  "这个名字融合了“导航”与“作品集”。",
-  "Navfolio 专注于轻量级组织、流畅的阅读体验，以及对开发者友好的美学设计。",
-  "它不像一份简历，更像是一个属于你自己的个人操作系统——承载想法、项目、笔记与网络足迹。",
+  "The name combines \"Polar\" and \"Vista\".",
+  "\"Polar\" is my English name; \"Vista\" is the view you see when you look far ahead.",
+  "PolarVista is where my curiosity takes shape — where what I observe and experience becomes words, and stays.",
+  "這個名字融合了「Polar」與「Vista」。",
+  "Polar 是我的英文名字；Vista 是視野、是眺望遠方的景色。",
+  "PolarVista，是我把好奇心具現化，把觀察與經歷寫成文字，留在這個網路世界裡。"
 ]
 
 [config.home.latest]
@@ -183,36 +182,36 @@ dateArchiveBaseHref = ""
 icon = "compass"
 title = "Portfolio"
 subtitle = "Selected work and case studies"
-href = "https://astro.navfolio.site/"
+href = "https://polar-tsai.github.io/"
 
 [[config.home.navigation]]
 icon = "pen"
 title = "Blog"
-subtitle = "Essays, notes, and field reports"
+subtitle = "所得、所學、所想"
 href = "/blog"
 
 [[config.home.navigation]]
 icon = "briefcase"
-title = "Resume"
+title = "LinkedIn"
 subtitle = "Career profile and experience"
-href = "https://github.com/dodolalorc/navfolio"
+href = "https://www.linkedin.com/in/polartsaitw/"
 
 [[config.home.navigation]]
 icon = "github"
 title = "Open Source"
 subtitle = "Code, experiments, and tools"
-href = "https://github.com/dodolalorc/astro-navfolio"
+href = "https://github.com/Polar-Tsai"
 
 [[config.home.links]]
 label = "GitHub"
 icon = "github"
-tooltip = "https://github.com/dodolalorc/astro-navfolio"
+tooltip = "https://github.com/Polar-Tsai"
 copy = false
 
 [[config.home.links]]
 label = "LinkedIn"
 icon = "linkedin"
-tooltip = "https://www.linkedin.com/"
+tooltip = "https://www.linkedin.com/in/polartsaitw/"
 copy = false
 
 [[config.home.links]]
@@ -225,66 +224,16 @@ copy = false
 label = "RSS"
 icon = "rss"
 tooltip = "/rss.xml"
-copy = false
+copy = true
 
 [[config.home.links]]
 label = "Email"
 icon = "mail"
-tooltip = "hello@navfolio.site"
-copy = true
-
-[[config.home.links]]
-label = "QQ"
-icon = "qq"
-tooltip = "123456789"
-copy = true
-
-[[config.home.links]]
-label = "WeChat"
-icon = "wechat"
-tooltip = "navfolio"
+tooltip = ""
 copy = true
 
 [[config.home.links]]
 label = "Weibo"
 icon = "weibo"
-tooltip = "https://weibo.com/"
+tooltip = "" # 留一個放 ithome
 copy = false
-
-[[config.home.links]]
-label = "Xiaohongshu"
-icon = "xiaohongshu"
-tooltip = "https://www.xiaohongshu.com/"
-copy = false
-
-[[config.home.links]]
-label = "Zhihu"
-icon = "zhihu"
-tooltip = "https://www.zhihu.com/"
-copy = false
-
-[[config.home.links]]
-label = "Bilibili"
-icon = "bilibili"
-tooltip = "https://www.bilibili.com/"
-copy = false
-
-[[config.home.doing]]
-text = "Shipping a personal dashboard template"
-mark = "01"
-
-[[config.home.doing]]
-text = "Writing reusable notes for future projects"
-mark = "02"
-
-[[config.home.doing]]
-text = "Improving static-site publishing workflow"
-mark = "03"
-
-[[config.home.doing]]
-text = "Collecting useful developer resources"
-mark = "04"
-
-[[config.home.doing]]
-text = "Exploring small open-source ideas"
-mark = "05"

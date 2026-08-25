@@ -1,7 +1,8 @@
 {
   "locale": "zh-TW",
   "doing": {
-    "recently": "最近"
+    "recently": "最近",
+    "empty": "這裡會隨著我持續紀錄慢慢長大 🌱"
   },
   "heatmap": {
     "totalPosts": "總文章",

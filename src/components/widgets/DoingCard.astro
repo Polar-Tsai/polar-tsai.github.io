@@ -1,29 +1,55 @@
 ---
 import Icon from '../Icon.astro';
+import FormattedDate from '../FormattedDate.astro';
 import { getSiteConfig } from '../../data/site';
 import { getUiText } from '../../utils/ui-text';
+import type { RecentActivityItem, RecentActivityType } from '../../data/recent-activity';
 
-interface DoingItem {
-  text: string;
-  mark: string;
+const { items } = Astro.props as { items: RecentActivityItem[] };
+const ui = getUiText(await getSiteConfig());
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+function withBase(href: string) {
+  return `${basePath}${href.startsWith('/') ? href : `/${href}`}`;
 }
 
-const { items } = Astro.props as { items: DoingItem[] };
-const ui = getUiText(await getSiteConfig());
+const typeIcon: Record<RecentActivityType, string> = {
+  post: 'pen',
+  vibe: 'sparkle',
+  project: 'folder',
+};
+
+const typeLabel: Record<RecentActivityType, string> = {
+  post: ui.search.resultKinds.blogNote,
+  vibe: ui.search.resultKinds.vibe,
+  project: ui.search.resultKinds.project,
+};
 ---
 
 <article class="glass-card doing-card">
   <h2><Icon name="calendar" /> {ui.doing.recently}</h2>
-  <ul>
-    {
-      items.map((item) => (
-        <li>
-          <span>{item.text}</span>
-          <strong aria-hidden="true">{item.mark}</strong>
-        </li>
-      ))
-    }
-  </ul>
+  {
+    items.length < 3 ? (
+      <p class="doing-empty">{ui.doing.empty}</p>
+    ) : (
+      <ul>
+        {items.map((item) => (
+          <li>
+            <a class="doing-link" href={withBase(item.href)}>
+              <span class="doing-type" data-type={item.type}>
+                <Icon name={typeIcon[item.type]} size={14} />
+                {typeLabel[item.type]}
+              </span>
+              <span class="doing-title">{item.title}</span>
+              <span class="doing-date">
+                <FormattedDate date={item.date} />
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
 </article>
 
 <style>
@@ -55,6 +81,14 @@ const ui = getUiText(await getSiteConfig());
     color: var(--paper-accent);
   }
 
+  .doing-empty {
+    margin: 0;
+    padding: 14px 0 14px 18px;
+    border-top: 1px solid var(--paper-line);
+    color: var(--paper-ink-muted, var(--paper-ink));
+    font-size: 0.94rem;
+  }
+
   ul {
     display: grid;
     gap: 0;
@@ -64,18 +98,22 @@ const ui = getUiText(await getSiteConfig());
   }
 
   li {
+    border-top: 1px solid var(--paper-line);
+  }
+
+  .doing-link {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 32px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     gap: 12px;
     align-items: center;
     padding: 14px 0 14px 18px;
-    border-top: 1px solid var(--paper-line);
     color: var(--paper-ink);
     font-size: 0.98rem;
+    text-decoration: none;
   }
 
-  li::before {
+  .doing-link::before {
     position: absolute;
     left: 0;
     width: 5px;
@@ -85,8 +123,37 @@ const ui = getUiText(await getSiteConfig());
     content: '';
   }
 
-  strong {
+  .doing-link:hover .doing-title {
+    text-decoration: underline;
+  }
+
+  .doing-type {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--paper-accent-soft, var(--paper-line));
+    color: var(--paper-accent);
+    font-size: 0.74rem;
+    white-space: nowrap;
+  }
+
+  .doing-type svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .doing-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .doing-date {
     font-size: 0.82rem;
     text-align: right;
+    white-space: nowrap;
+    opacity: 0.75;
   }
 </style>
