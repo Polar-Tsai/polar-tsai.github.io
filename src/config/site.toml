@@ -1,11 +1,11 @@
 [config.site]
-title = "navfolio"
-description = "A personal navigation portfolio starter built with Astro."
-pageTitle = "navfolio | Digital Publication Space"
-pageDescription = "A calm AI-native personal publication space for notes, links, and writing."
-url = "https://astro.navfolio.site"
+title = "PolarVista"
+description = "喜歡觀察生活事物，並將好奇心具現化，然後一一寫成文字。"
+pageTitle = "PolarVista | 把好奇心具現化，把觀察與經歷寫成文字"
+pageDescription = "喜歡觀察生活上的困難並試圖解決它，實作過程都會記錄在此。涵蓋公共議題、開發日記、第一線問題，還有理財筆記。"
+url = "https://polar-tsai.github.io/"
 repository = "https://github.com/dodolalorc/astro-navfolio"
-footerNote = "Released as an open-source starter."
+footerNote = "© 2026 PolarVista. Built with curiosity."
 
 [config.theme]
 # 可用色盘：
@@ -154,7 +154,6 @@ href = "/about"
 
 [config.home.quote]
 text = [
-  "Hi, this is PolarVista",
   "— where curiosity takes shape, and stays.",
 ]
 

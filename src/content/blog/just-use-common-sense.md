@@ -16,8 +16,6 @@ sidebar:
   relatedPosts: true
 ---
 
-# 好的工作就是用常識做事
-
 > 「違反常識的事情太多，很內耗；有話無法直說，也很內耗；處理過多人的問題而非投入解決問題，其實也很內耗。」Gipi 游舒帆在[本周電子報](https://gipi.tw/shape-your-life/)說了這句話
 > 
 
