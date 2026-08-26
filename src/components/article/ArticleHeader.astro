@@ -14,6 +14,8 @@ interface Props {
   title: string;
   description?: string;
   date?: Date;
+  updatedDate?: Date;
+  author?: string;
   wordCount: number;
   readingTime: string;
   tags?: TagLink[];
@@ -32,6 +34,8 @@ const {
   title,
   description,
   date,
+  updatedDate,
+  author,
   wordCount,
   readingTime,
   tags = [],
@@ -76,6 +80,17 @@ const wordCountLabel = ui.article.wordCount(wordCount);
             {date && (
               <MetadataItem kind="date" separated={false}>
                 <FormattedDate date={date} />
+              </MetadataItem>
+            )}
+            {updatedDate && (
+              <MetadataItem kind="updated" separated>
+                {ui.article.updatedOn}
+                <FormattedDate date={updatedDate} />
+              </MetadataItem>
+            )}
+            {author && (
+              <MetadataItem kind="author" separated>
+                {author}
               </MetadataItem>
             )}
             <MetadataItem kind="words" separated={Boolean(date)}>
@@ -140,6 +155,17 @@ const wordCountLabel = ui.article.wordCount(wordCount);
           {date && (
             <MetadataItem kind="date" separated={false}>
               <FormattedDate date={date} />
+            </MetadataItem>
+          )}
+          {updatedDate && (
+            <MetadataItem kind="updated" separated>
+              {ui.article.updatedOn}
+              <FormattedDate date={updatedDate} />
+            </MetadataItem>
+          )}
+          {author && (
+            <MetadataItem kind="author" separated>
+              {author}
             </MetadataItem>
           )}
           <MetadataItem kind="words" separated={Boolean(date)}>

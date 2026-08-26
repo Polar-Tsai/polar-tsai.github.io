@@ -80,6 +80,7 @@
     "previousInSeries": "Previous in {name}",
     "nextInSeries": "Next in {name}",
     "pinned": "Pinned",
+    "updatedOn": "Updated ",
     "moreFromSite": "More from {siteTitle}"
   },
   "toc": {

@@ -31,7 +31,10 @@ const siteUrlSchema = z.preprocess((value) => {
 }, z.url());
 
 const contentImageSchema = ({ image }: Parameters<CollectionSchemaFactory>[0]) =>
-  z.union([image(), remoteImageSchema]);
+  z.preprocess(
+    (value) => (typeof value === 'string' && value.trim() === '' ? undefined : value),
+    z.union([image(), remoteImageSchema]).optional(),
+  );
 
 const articleSchema = ({ image }: Parameters<CollectionSchemaFactory>[0]) =>
   z.object({
@@ -39,14 +42,22 @@ const articleSchema = ({ image }: Parameters<CollectionSchemaFactory>[0]) =>
     description: z.string(),
     // Creation date. Accepts ISO 8601 strings and plain dates such as YYYY-MM-DD.
     date: z.coerce.date(),
+    // Last substantive edit date. Optional freshness signal for readers/search/AI.
+    updatedDate: z.coerce.date().optional(),
     draft: z.boolean().optional().default(false),
     heroImage: z.optional(contentImageSchema({ image })),
+    // Social-share preview image. Falls back to heroImage, then the site default.
+    ogImage: z.optional(contentImageSchema({ image })),
     showHeroImage: z.boolean().optional().default(true),
     tags: z.array(z.string()).optional().default([]),
     categories: z.array(z.string()).optional().default([]),
     series: z.array(z.string()).optional().default([]),
     comments: z.boolean().optional().default(true),
     sidebar: sidebarSchema,
+    // Falls back to profile.name when unset.
+    author: z.string().optional(),
+    // Overrides the auto self-referencing canonical URL — only for cross-posted content.
+    canonicalUrl: z.url().optional(),
   });
 
 const blogArticleSchema = (context: Parameters<CollectionSchemaFactory>[0]) =>

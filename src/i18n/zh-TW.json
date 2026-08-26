@@ -62,6 +62,7 @@
     "previousInSeries": "{name} 上一篇",
     "nextInSeries": "{name} 下一篇",
     "pinned": "置頂",
+    "updatedOn": "更新於 ",
     "moreFromSite": "{siteTitle} 的更多文章"
   },
   "toc": {

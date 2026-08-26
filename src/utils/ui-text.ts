@@ -81,6 +81,7 @@ type RawUiText = {
     previousInSeries: Message;
     nextInSeries: Message;
     pinned: string;
+    updatedOn: string;
     moreFromSite: Message;
   };
   toc: {

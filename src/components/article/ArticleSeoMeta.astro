@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  datePublished: Date;
+  dateModified?: Date;
+  image?: string;
+  author: string;
+  siteName: string;
+  canonicalUrl?: string;
+}
+
+const { title, description, datePublished, dateModified, image, author, siteName, canonicalUrl } =
+  Astro.props;
+const canonicalURL = canonicalUrl ? new URL(canonicalUrl) : new URL(Astro.url.pathname, Astro.site);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: datePublished.toISOString(),
+  dateModified: (dateModified ?? datePublished).toISOString(),
+  ...(image ? { image } : {}),
+  author: { '@type': 'Person', name: author },
+  publisher: { '@type': 'Person', name: siteName },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalURL.toString() },
+};
+---
+
+<meta property="article:published_time" content={datePublished.toISOString()} />
+{dateModified && <meta property="article:modified_time" content={dateModified.toISOString()} />}
+<meta property="article:author" content={author} />
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
