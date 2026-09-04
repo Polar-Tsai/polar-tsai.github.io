@@ -36,6 +36,14 @@ const contentImageSchema = ({ image }: Parameters<CollectionSchemaFactory>[0]) =
     z.union([image(), remoteImageSchema]).optional(),
   );
 
+const emptyStringToUndefined = (value: unknown) =>
+  typeof value === 'string' && value.trim() === '' ? undefined : value;
+
+// Scaffolded posts default these to '' — without this preprocess, an unfilled
+// optional date/URL field fails schema validation instead of being skipped.
+const optionalCoercedDateSchema = z.preprocess(emptyStringToUndefined, z.coerce.date().optional());
+const optionalUrlSchema = z.preprocess(emptyStringToUndefined, z.url().optional());
+
 const articleSchema = ({ image }: Parameters<CollectionSchemaFactory>[0]) =>
   z.object({
     title: z.string(),
@@ -43,7 +51,7 @@ const articleSchema = ({ image }: Parameters<CollectionSchemaFactory>[0]) =>
     // Creation date. Accepts ISO 8601 strings and plain dates such as YYYY-MM-DD.
     date: z.coerce.date(),
     // Last substantive edit date. Optional freshness signal for readers/search/AI.
-    updatedDate: z.coerce.date().optional(),
+    updatedDate: optionalCoercedDateSchema,
     draft: z.boolean().optional().default(false),
     heroImage: z.optional(contentImageSchema({ image })),
     // Social-share preview image. Falls back to heroImage, then the site default.
@@ -57,7 +65,7 @@ const articleSchema = ({ image }: Parameters<CollectionSchemaFactory>[0]) =>
     // Falls back to profile.name when unset.
     author: z.string().optional(),
     // Overrides the auto self-referencing canonical URL — only for cross-posted content.
-    canonicalUrl: z.url().optional(),
+    canonicalUrl: optionalUrlSchema,
   });
 
 const blogArticleSchema = (context: Parameters<CollectionSchemaFactory>[0]) =>
