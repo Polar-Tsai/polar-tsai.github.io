@@ -2,3 +2,6 @@
 @import '@fontsource/maple-mono/500.css';
 @import '@fontsource/maple-mono/600.css';
 @import '@fontsource/maple-mono/700.css';
+/* 霞鶩文楷 TC：unicode-range 切片，瀏覽器只下載頁面上用到的字 */
+@import '@fontsource/lxgw-wenkai-tc/400.css';
+@import '@fontsource/lxgw-wenkai-tc/700.css';

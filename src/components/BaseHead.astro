@@ -92,19 +92,31 @@ function createFontCss(fonts: { en: string; code: string; zh: string; file: stri
   const enFamily = toCssFontFamily(fonts.en);
   const codeFontName = normalizeFontFamilyName(fonts.code);
   const codeFamily = toCssFontFamily(fonts.code);
-  const fontFile = toCssString(resolveAssetUrl(fonts.file));
-  const subsetUrl = getSubsetFontUrl(fonts.file);
-  const subsetFile = toCssString(resolveAssetUrl(subsetUrl));
   const monacoFontFace =
     codeFontName === 'Monaco'
       ? `@font-face{font-family:"Monaco";src:url(${toCssString(resolveAssetUrl('/fonts/Monaco.ttf'))}) format("truetype");font-style:normal;font-weight:400;font-display:swap;}`
       : '';
+  // Traditional Chinese system fonts shown while the web font is still loading.
+  const cjkSystemFallback = `--font-cjk-system:${enFamily},"PingFang TC","Microsoft JhengHei","Noto Sans TC",system-ui,sans-serif;`;
+
+  // No file: the zh font ships as unicode-range slices from src/styles/fonts.css,
+  // so there is no single full file and no UI subset to declare.
+  if (!fonts.file) {
+    return `
+${monacoFontFace}
+html:root{--font-config-en:${enFamily};--font-config-code:${codeFamily};--font-config-zh:${zhFamily};--font-config-zh-subset:${zhFamily};${cjkSystemFallback}}
+`;
+  }
+
+  const fontFile = toCssString(resolveAssetUrl(fonts.file));
+  const subsetUrl = getSubsetFontUrl(fonts.file);
+  const subsetFile = toCssString(resolveAssetUrl(subsetUrl));
 
   return `
 @font-face{font-family:${zhSubsetFamily};src:url(${subsetFile}) format("${getFontFormat(subsetUrl)}");font-style:normal;font-weight:400;font-display:swap;}
 @font-face{font-family:${zhFamily};src:url(${fontFile}) format("${getFontFormat(fonts.file)}");font-style:normal;font-weight:400;font-display:swap;}
 ${monacoFontFace}
-html:root{--font-config-en:${enFamily};--font-config-code:${codeFamily};--font-config-zh:${zhFamily};--font-config-zh-subset:${zhSubsetFamily};}
+html:root{--font-config-en:${enFamily};--font-config-code:${codeFamily};--font-config-zh:${zhFamily};--font-config-zh-subset:${zhSubsetFamily};${cjkSystemFallback}}
 `;
 }
 ---

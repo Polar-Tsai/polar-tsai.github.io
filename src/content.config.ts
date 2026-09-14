@@ -118,8 +118,9 @@ const defaultMathConfig = {
 const defaultFontConfig = {
   en: 'Maple Mono',
   code: 'Monaco',
-  zh: 'ChillRoundM',
-  file: '/fonts/ChillRoundM.ttf',
+  zh: 'LXGW WenKai TC',
+  // Empty = the zh font is loaded by a stylesheet (src/styles/fonts.css), not a single self-hosted file.
+  file: '',
 };
 
 const nonEmptyStringSchema = (fallback: string) =>
@@ -330,7 +331,7 @@ const siteConfig = defineCollection({
         en: nonEmptyStringSchema(defaultFontConfig.en),
         code: nonEmptyStringSchema(defaultFontConfig.code),
         zh: nonEmptyStringSchema(defaultFontConfig.zh),
-        file: nonEmptyStringSchema(defaultFontConfig.file),
+        file: z.string().trim().optional().default(defaultFontConfig.file),
       })
       .optional()
       .default(defaultFontConfig),

@@ -12,17 +12,17 @@ footerNote = "© 2026 PolarVista. Built with curiosity."
 # green-soft, green-vivid, rose-soft, pink-soft, purple-soft, blue-soft, orange-soft, brown-soft
 palette = "green-soft"
 # 原生 UI 语言。可用值：en、zh-CN、zh-TW。未知值会回退到 en。
-lang = "en"
+lang = "zh-TW"
 
 [config.fonts]
 # 英文与代码感 UI 字体
 en = "Maple Mono"
 code = "Monaco"
-# 模板内可直接选择：ChillRoundM、LXGW WenKai
-# 中文阅读字体
-zh = "ChillRoundM"
-# 中文完整字体文件
-file = "/fonts/ChillRoundM.ttf"
+# 中文閱讀字體：霞鶩文楷 TC，由 src/styles/fonts.css 載入 @fontsource/lxgw-wenkai-tc
+#（依字元切片，每頁只下載用到的字）
+zh = "LXGW WenKai TC"
+# 留空 = 字體由 fonts.css 載入；只有改用單一字體檔（放 public/fonts/）時才填路徑
+file = ""
 
 [config.code]
 lightTheme = "catppuccin-latte"

@@ -3,7 +3,8 @@ import { getSiteConfig } from '../data/site';
 
 const { fonts } = await getSiteConfig();
 const fullFontType = getFontMimeType(fonts.file);
-const resolvedFullFontUrl = resolveAssetUrl(fonts.file);
+// Sliced web fonts (config.fonts.file empty) have no single full file to warm up.
+const resolvedFullFontUrl = fonts.file ? resolveAssetUrl(fonts.file) : '';
 
 function resolveAssetUrl(url: string) {
   if (/^(?:https?:)?\/\//i.test(url) || url.startsWith('data:')) return url;
@@ -38,6 +39,8 @@ function getFontMimeType(url: string) {
   }
 
   function shouldSkipWarmup() {
+    if (!FULL_FONT_URL) return true;
+
     const connection = getConnection();
 
     if (connection?.saveData) return true;
