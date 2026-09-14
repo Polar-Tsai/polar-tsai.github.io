@@ -10,7 +10,7 @@ date: "2026-09-04T02:15:58.928Z"    # 發布日
 updatedDate: ''
 draft: false
 sticky: false
-heroImage: '../../assets/figure/blog/build-blog-something-need-to-know/cover.png'
+heroImage: '../../assets/figure/blog/build-blog-something-need-to-know/cover.jpg'
 ogImage: ''                    # 社群分享用的預覽圖，留空會自動 fallback 用 heroImage，兩者都沒有才用全站預設圖
 showHeroImage: false
 

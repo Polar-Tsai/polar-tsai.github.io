@@ -58,7 +58,7 @@
 
 ### [x] 4. `/about` 與 `/projects` 是模板佔位文字，且已進 sitemap
 
-> ✅ 2026-09-14：About 已寫第一版（description 仍是「一句話介紹自己」，待補）。Projects 的 `draft: true` 對 index 頁無效，改成在 `navfolio.config.ts` 停用 projects 模組。
+> ✅ 2026-09-14：About 已寫第一版，description 也已改寫。Projects 的 `draft: true` 對 index 頁無效，改成在 `navfolio.config.ts` 停用 projects 模組。
 
 **現況**
 
@@ -86,7 +86,11 @@
 
 ## 🟠 中等
 
-### [ ] 6. 文章頁的 `<title>` 沒有站名後綴
+### [x] 6. 文章頁的 `<title>` 沒有站名後綴
+
+> ✅ 2026-09-14：`src/layouts/BlogArticle.astro` 改為 ``title={`${title} | ${siteConfig.site.title}`}``。文章頁與 About 頁現在都會帶「| PolarVista」。
+>
+> **說明**：`<title>` 是瀏覽器分頁文字，也是 Google 搜尋結果的藍色大標題。Google 約顯示 30 個中文字，超過會截斷，但站名放在最後，截掉也不影響文章標題本身。
 
 | 頁面      | 目前 title                          |
 | --------- | ----------------------------------- |
@@ -99,7 +103,27 @@
 
 ---
 
-### [ ] 7. 五個分類／標籤頁共用同一段 meta description
+### [x] 7. 五個分類／標籤頁共用同一段 meta description
+
+> ✅ 2026-09-14：分類、標籤、系列頁改為兩層機制（`src/utils/group-description.ts`）：
+>
+> 1. **有手寫就用手寫**：`site.toml` 的 `[config.descriptions.categories]`／`tags`／`series`
+> 2. **沒寫就自動產生**：例如「「開發日記」標籤收錄 1 篇文章：非資工也能架設網站！…」
+>
+> ✅ 2026-09-14：已在 `site.toml` 手寫 onsite / life / money / civic 四個分類與 開發日記 / 非資工人 / 職涯 三個標籤的描述。新增分類或標籤時記得回來補一句（寫法如下）：
+>
+> ```toml
+> [config.descriptions.categories]
+> onsite = "第一線工作現場的觀察與問題解決紀錄"
+> life = "..."
+>
+> [config.descriptions.tags]
+> "開發日記" = "非資工背景自學開發、架站過程的踩坑紀錄"
+> "非資工人" = "..."
+> "職涯" = "..."
+> ```
+>
+> 不寫也不會重複，只是自動產生的描述比較像目錄；手寫的更能吸引點擊。
 
 `/blog/categories/life/`、`/blog/categories/onsite/`、`/tags/職涯/`、`/tags/開發日記/`、`/tags/非資工人/` 的 description 全是站台預設的「喜歡觀察生活事物…」。
 
@@ -107,7 +131,9 @@
 
 ---
 
-### [ ] 8. `/blog/series/` 抓錯設定，跟 `/blog` 完全重複
+### [x] 8. `/blog/series/` 抓錯設定，跟 `/blog` 完全重複
+
+> ✅ 2026-09-14：改為 `pages.blog.series`，title 變成「Series | PolarVista」，description 也改用系列頁自己的文案。
 
 **現況**：`src/pages/blog/series/index.astro:16` 寫的是 `pages.blog` 而不是 `pages.blog.series`，導致 title 變成「Writing notes | PolarVista」——**跟 `/blog` 一模一樣**，description 也錯拿 blog 的。
 
@@ -115,13 +141,19 @@
 
 ---
 
-### [ ] 9. 缺少 `og:site_name` 和 `og:locale`
+### [x] 9. 缺少 `og:site_name` 和 `og:locale`
+
+> ✅ 2026-09-14：`BaseHead.astro` 補上 `og:site_name`（取 `site.title`）與 `og:locale`（依 `theme.lang` 自動轉成 `zh_TW`）。
+>
+> **說明**：把連結貼到 Facebook、LINE、LinkedIn、Discord 時跳出的預覽卡片，內容來自 `og:` 開頭的標籤。`og:site_name` 讓卡片顯示「PolarVista」而不是只有網址；`og:locale` 告訴平台這頁是台灣繁中。注意 og 的格式是底線 `zh_TW`，跟 `<html lang="zh-TW">` 的連字號不同。
 
 `src/components/BaseHead.astro:209-221` 有 og:type / url / title / description / image，但缺 `og:site_name`（分享卡片不顯示站名）與 `og:locale`（沒宣告 zh_TW）。
 
 ---
 
-### [ ] 10. OG 圖 1.4MB 且比例錯誤
+### [x] 10. OG 圖 1.4MB 且比例錯誤
+
+> ✅ 2026-09-14：製作規範已寫進 `WRITING.md` 的「封面圖（cover）製作注意事項」。兩篇文章的 cover 已重新輸出為 1733×907（1.91:1）的 `cover.jpg`（266KB／279KB），frontmatter 的 `heroImage` 改指向 `.jpg`；`cover.png` 為保留的原檔，未被引用、不會部署。
 
 **現況**：兩篇文章的 `cover.png` 都是 **1448×1086（4:3）**，但社群平台要的是 1.91:1（1200×630），會被裁掉上下。而且 `og:image` 指向 **未優化的原始 PNG（1.4MB）**，不是 Astro 產出的 webp。
 
@@ -129,7 +161,11 @@
 
 ---
 
-### [ ] 11. 沒有 robots.txt
+### [x] 11. 沒有 robots.txt
+
+> ✅ 2026-09-14：建立 `public/robots.txt`，允許所有爬蟲並指向 sitemap。
+>
+> **說明**：`robots.txt` 是搜尋引擎與 AI 爬蟲來網站時第一個讀的檔案，告訴它們哪裡能抓、網站地圖在哪。沒有它 Google 仍會收錄，但新文章被發現得比較慢。目前設定歡迎所有爬蟲（含 ChatGPT、Claude、Google AI），文章才有機會被 AI 工具讀到並引用；哪天不想被拿去訓練 AI，也是在這個檔案裡擋。
 
 `dist/robots.txt` 不存在。BaseHead 雖然有 `<link rel="sitemap">`，但 robots.txt 才是爬蟲的標準入口。
 
@@ -150,12 +186,10 @@
 
 ---
 
-## 建議處理順序
+## 目前進度（2026-09-14）
 
-1. **第 1 + 3 項**（字體）—— 一起處理，對 Core Web Vitals 效果最立即
-2. **第 4 + 5 項**（佔位內容與空殼頁）—— 把不該被收錄的東西處理掉
-3. **第 2 項**（`lang`）—— 需要先決定「要不要接受 UI 變中文」
-4. 其餘依序往下
+- ✅ 已完成：1–11
+- ⏳ 尚未開始：12–19（多為模板殘留，改動都很小）
 
 ## 相關文件
 

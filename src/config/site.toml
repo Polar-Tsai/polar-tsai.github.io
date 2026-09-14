@@ -89,6 +89,22 @@ title = "书影音"
 subtitle = "读过、看过、听过的作品，以及一点当时的感受。"
 note = "一页浏览书、电影、剧集、专辑与播客。"
 
+# 分類／標籤／系列頁的 meta description（會出現在 Google 搜尋結果）
+# key 用「顯示名稱」（跟文章 frontmatter 裡寫的一樣）；沒寫的會自動用該分類下的文章標題產生。
+
+[config.descriptions.categories]
+onsite = "第一線議題：第一線工作現場的觀察與問題解決紀錄"
+life = "生活議題：在職涯、職場上的所見所聞與所想"
+money = "錢錢議題：與理財、投資有關的實踐與學習"
+civic = "公共議題：與公共政策、社會與生活的相關執行或協助紀錄"
+
+[config.descriptions.tags]
+"開發日記" = "非資工背景自學開發、架站過程的踩坑紀錄"
+"非資工人" = "非資工人對於這個世界的見解" 
+"職涯" = "工作與內心的交流，不管好的壞的"
+
+[config.descriptions.series]
+
 [config.comments.giscus]
 repo = ""
 repo_id = ""
@@ -222,7 +238,7 @@ copy = false
 [[config.home.links]]
 label = "RSS"
 icon = "rss"
-tooltip = "/rss.xml"
+tooltip = "https://polar-tsai.github.io/rss.xml"
 copy = true
 
 [[config.home.links]]

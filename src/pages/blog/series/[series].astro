@@ -8,6 +8,7 @@ import BlogTopNav from '../../../components/blog/BlogTopNav.astro';
 import SeriesProgress from '../../../components/blog/SeriesProgress.astro';
 import { getSiteConfig } from '../../../data/site';
 import { getAllSeries, getPostsBySeries } from '../../../utils/content-groups';
+import { getGroupDescription } from '../../../utils/group-description';
 import { getUiText } from '../../../utils/ui-text';
 
 export async function getStaticPaths() {
@@ -28,12 +29,18 @@ const palette = theme.palette;
 const pageMeta = pages.blog;
 const { series, posts } = Astro.props;
 const ui = getUiText(siteConfig);
+const description = getGroupDescription(
+  'series',
+  series.name,
+  posts,
+  siteConfig.descriptions.series,
+);
 ---
 
 <!doctype html>
 <html lang={ui.locale} data-palette={palette}>
   <head>
-    <BaseHead title={`${series.name} | ${site.title}`} description={site.description} />
+    <BaseHead title={`${series.name} | ${site.title}`} description={description} />
     <style>
       main {
         width: min(100%, var(--layout-shell-width));

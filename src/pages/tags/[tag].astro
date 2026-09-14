@@ -8,6 +8,7 @@ import BlogTopNav from '../../components/blog/BlogTopNav.astro';
 import { getSiteConfig } from '../../data/site';
 import { sortBlogPostsForArchive } from '../../utils/content-dates';
 import { getAllTags } from '../../utils/content-groups';
+import { getGroupDescription } from '../../utils/group-description';
 import { getUiText } from '../../utils/ui-text';
 
 export async function getStaticPaths() {
@@ -41,12 +42,13 @@ const palette = theme.palette;
 const pageMeta = pages.blog;
 const { tag, page } = Astro.props;
 const ui = getUiText(siteConfig);
+const description = getGroupDescription('tags', tag.name, page.data, siteConfig.descriptions.tags);
 ---
 
 <!doctype html>
 <html lang={ui.locale} data-palette={palette}>
   <head>
-    <BaseHead title={`${tag.name} | ${site.title}`} description={site.description} />
+    <BaseHead title={`${tag.name} | ${site.title}`} description={description} />
     <style>
       main {
         width: min(100%, var(--layout-shell-width));

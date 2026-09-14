@@ -91,8 +91,17 @@ const post = props.post ?? {
 };
 const isBlogPost = post.collection === 'blog';
 const shouldMountCommentSection = supportsCommentSection(post.collection);
-const { title, description, date, updatedDate, heroImage, ogImage, showHeroImage = true, author, canonicalUrl } =
-  post.data;
+const {
+  title,
+  description,
+  date,
+  updatedDate,
+  heroImage,
+  ogImage,
+  showHeroImage = true,
+  author,
+  canonicalUrl,
+} = post.data;
 const resolvedAuthor = author || siteConfig.profile.name;
 const contentFont = props.contentFont ?? 'article';
 const bodyText = 'body' in post && typeof post.body === 'string' ? post.body : description;
@@ -158,7 +167,7 @@ const articleImageUrl = articleImageSource
 <html lang={ui.locale} data-palette={palette}>
   <head>
     <BaseHead
-      title={title}
+      title={`${title} | ${siteConfig.site.title}`}
       description={description}
       image={articleImageSource}
       canonicalUrl={canonicalUrl}

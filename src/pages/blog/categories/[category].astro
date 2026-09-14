@@ -12,6 +12,7 @@ import {
   uncategorizedCategory,
 } from '../../../utils/content-groups';
 import { sortBlogPostsForArchive } from '../../../utils/content-dates';
+import { getGroupDescription } from '../../../utils/group-description';
 import { getUiText } from '../../../utils/ui-text';
 
 export async function getStaticPaths() {
@@ -47,12 +48,18 @@ const { category, page } = Astro.props;
 const ui = getUiText(siteConfig);
 const categoryName =
   category.slug === uncategorizedCategory.slug ? ui.groups.uncategorized : category.name;
+const description = getGroupDescription(
+  'categories',
+  categoryName,
+  page.data,
+  siteConfig.descriptions.categories,
+);
 ---
 
 <!doctype html>
 <html lang={ui.locale} data-palette={palette}>
   <head>
-    <BaseHead title={`${categoryName} | ${site.title}`} description={site.description} />
+    <BaseHead title={`${categoryName} | ${site.title}`} description={description} />
     <style>
       main {
         width: min(100%, var(--layout-shell-width));

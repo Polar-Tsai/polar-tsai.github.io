@@ -432,6 +432,16 @@ const siteConfig = defineCollection({
       })
       .optional()
       .default(defaultPagesConfig),
+    // Hand-written meta descriptions for category/tag/series pages, keyed by display name.
+    // Groups without an entry get an auto-generated description (src/utils/group-description.ts).
+    descriptions: z
+      .object({
+        categories: z.record(z.string(), z.string()).optional().default({}),
+        tags: z.record(z.string(), z.string()).optional().default({}),
+        series: z.record(z.string(), z.string()).optional().default({}),
+      })
+      .optional()
+      .default({ categories: {}, tags: {}, series: {} }),
     home: z.object({
       quote: z.object({
         text: z.array(z.string()).min(1),

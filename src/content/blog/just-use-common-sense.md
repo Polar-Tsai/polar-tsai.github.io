@@ -5,7 +5,7 @@ date: "2026-08-24T23:25:27.804Z"
 updatedDate: "2026-08-26T06:31:27.804Z"
 draft: false
 sticky: false
-heroImage: '../../assets/figure/blog/just-use-common-sense/cover.png'
+heroImage: '../../assets/figure/blog/just-use-common-sense/cover.jpg'
 showHeroImage: true
 tags: ["職涯"]
 categories: ["life"]

@@ -13,7 +13,7 @@ import { getUiText } from '../../../utils/ui-text';
 const siteConfig = await getSiteConfig();
 const { site, theme, pages } = siteConfig;
 const palette = theme.palette;
-const pageMeta = pages.blog;
+const pageMeta = pages.blog.series;
 const series = getAllSeries(await getCollection('blog', ({ data }) => !data.draft));
 const ui = getUiText(siteConfig);
 ---

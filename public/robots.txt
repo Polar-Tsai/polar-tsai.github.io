@@ -1,0 +1,6 @@
+# 允許所有爬蟲（搜尋引擎與 AI 工具）抓取全站
+User-agent: *
+Allow: /
+
+# 網站地圖位置
+Sitemap: https://polar-tsai.github.io/sitemap-index.xml
