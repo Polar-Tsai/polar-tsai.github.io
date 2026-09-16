@@ -61,7 +61,7 @@ sidebar:
 
 不過是不是可以將青壯年諮商與勞工心理諮商一次用掉，等我今天諮商後，明天跟大家分享結果吧！
 
-- 政府公告：115年勞工心理諮商服務
-- 合作心理諮商所清單查詢：https://ohh.coapre.org.tw/home
+- 政府公告：[115年勞工心理諮商服務](https://www.coapre.org.tw/tw/news-content/98d82cAe2D4a)
+- 合作心理諮商所清單查詢：[心理諮商機構快速查詢](https://ohh.coapre.org.tw/home)
 
 ![真人撰稿](../../assets/figure/Authored-By-Human-Not-By-AI-Badge-white.png)
