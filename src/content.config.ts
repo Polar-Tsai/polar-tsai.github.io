@@ -432,6 +432,16 @@ const siteConfig = defineCollection({
       })
       .optional()
       .default(defaultPagesConfig),
+    // Analytics ids and search-engine verification codes. Empty string = feature off.
+    analytics: z
+      .object({
+        ga4: z.string().trim().optional().default(''),
+        clarity: z.string().trim().optional().default(''),
+        googleSiteVerification: z.string().trim().optional().default(''),
+        bingSiteVerification: z.string().trim().optional().default(''),
+      })
+      .optional()
+      .default({ ga4: '', clarity: '', googleSiteVerification: '', bingSiteVerification: '' }),
     // Hand-written meta descriptions for category/tag/series pages, keyed by display name.
     // Groups without an entry get an auto-generated description (src/utils/group-description.ts).
     descriptions: z

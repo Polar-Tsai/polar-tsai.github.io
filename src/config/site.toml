@@ -252,3 +252,15 @@ label = "Weibo"
 icon = "weibo"
 tooltip = "" # 留一個放 ithome
 copy = false
+
+# 網站分析與搜尋引擎驗證。留空 = 停用該項目，填了才會載入。
+# 取得 ID 與驗證碼的步驟見 ANALYTICS.md。
+[config.analytics]
+# GA4 評估 ID，格式 G-XXXXXXXXXX
+ga4 = ""
+# Microsoft Clarity 專案 ID，格式為一串英數字
+clarity = ""
+# Google Search Console 的 HTML 標記驗證碼（只填 content="..." 裡那串）
+googleSiteVerification = ""
+# Bing Webmaster Tools 的 HTML 標記驗證碼
+bingSiteVerification = ""

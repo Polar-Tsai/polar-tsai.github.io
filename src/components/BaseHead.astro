@@ -9,6 +9,7 @@ import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import { ClientRouter } from 'astro:transitions';
 import FallbackImage from '../assets/figure/fail-loading-image.png';
+import Analytics from './Analytics.astro';
 import { getSiteConfig } from '../data/site';
 
 interface Props {
@@ -236,3 +237,6 @@ html:root{--font-config-en:${enFamily};--font-config-code:${codeFamily};--font-c
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(imageUrl, Astro.url)} />
+
+<!-- Analytics / search engine verification -->
+<Analytics />

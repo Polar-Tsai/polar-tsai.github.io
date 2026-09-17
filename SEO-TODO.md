@@ -194,3 +194,4 @@
 ## 相關文件
 
 - 寫文章流程與 frontmatter 說明：`WRITING.md`
+- 分析工具（GA4、Clarity、Search Console、Bing）申請與設定：`ANALYTICS.md`
