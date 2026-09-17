@@ -261,6 +261,6 @@ ga4 = ""
 # Microsoft Clarity 專案 ID，格式為一串英數字
 clarity = ""
 # Google Search Console 的 HTML 標記驗證碼（只填 content="..." 裡那串）
-googleSiteVerification = ""
+googleSiteVerification = "hkvRbPBhPpIMlEfDAupyIpsfCqQ_NntU7ycGsmeTlnQ"
 # Bing Webmaster Tools 的 HTML 標記驗證碼
 bingSiteVerification = ""
