@@ -4,7 +4,7 @@ description = "喜歡觀察生活事物，並將好奇心具現化，然後一�
 pageTitle = "PolarVista | 把好奇心具現化，把觀察與經歷寫成文字"
 pageDescription = "喜歡觀察生活上的困難並試圖解決它，實作過程都會記錄在此。涵蓋公共議題、開發日記、第一線問題，還有理財筆記。"
 url = "https://polar-tsai.github.io/"
-repository = "https://github.com/dodolalorc/astro-navfolio"
+repository = "https://github.com/Polar-Tsai/polar-tsai.github.io"
 footerNote = "© 2026 PolarVista. Built with curiosity."
 
 [config.theme]
@@ -43,14 +43,14 @@ show_on_posts = true
 [config.search]
 enabled = true
 shortcut = "mod+k"
-placeholder = "Search notes..."
+placeholder = "搜尋文章…"
 maxResults = 6
 
 [config.pages.blog]
-title = "Writing notes"
-kicker = "Notebook archive"
-subtitle = "Notes from the margins."
-note = "Field notes, drafts, and technical margins arranged for slow browsing."
+title = "文章"
+kicker = "寫作紀錄"
+subtitle = "把觀察與經歷，一篇一篇寫下來。"
+note = "開發日記、職涯觀察、公共議題與理財筆記，都收在這裡。"
 postsPerPage = 6
 # date-fns 使用的日期格式模板。
 dateFormat = "yyyy-MM-dd"
@@ -60,16 +60,16 @@ metadataSeparator = "icon"
 coverImageStyle = "mask"
 
 [config.pages.blog.categories]
-title = "Categories"
-kicker = "Browse notes"
+title = "分類"
+kicker = "依主題瀏覽"
 subtitle = ""
-note = "A quiet index of recurring topics, gathered from article frontmatter."
+note = "從文章分類整理出來的主題索引。"
 
 [config.pages.blog.series]
-title = "Series"
-kicker = "Reading paths"
+title = "系列"
+kicker = "依順序閱讀"
 subtitle = ""
-note = "Connected notes that can be followed in the order they were written."
+note = "同一個主題連續寫下的文章，可以照發表順序一路讀下去。"
 
 [config.pages.projects]
 title = "Projects"
@@ -93,10 +93,10 @@ note = "一页浏览书、电影、剧集、专辑与播客。"
 # key 用「顯示名稱」（跟文章 frontmatter 裡寫的一樣）；沒寫的會自動用該分類下的文章標題產生。
 
 [config.descriptions.categories]
-onsite = "第一線議題：第一線工作現場的觀察與問題解決紀錄"
-life = "生活議題：在職涯、職場上的所見所聞與所想"
-money = "錢錢議題：與理財、投資有關的實踐與學習"
-civic = "公共議題：與公共政策、社會與生活的相關執行或協助紀錄"
+"第一線議題" = "第一線工作現場的觀察與問題解決紀錄"
+"生活議題" = "在職涯、職場上的所見所聞與所想"
+"錢錢議題" = "與理財、投資有關的實踐與學習"
+"公共議題" = "與公共政策、社會與生活的相關執行或協助紀錄"
 
 [config.descriptions.tags]
 "開發日記" = "非資工背景自學開發、架站過程的踩坑紀錄"
@@ -134,20 +134,21 @@ pageview = true
 comment = true
 
 [config.profile]
-name = "polarvista"
-handle = "@navfolio"
+name = "PolarVista"
+handle = "@Polar-Tsai"
 role = "Build Something Cool"
-email = "hello@navfolio.site"
+# 留空 = 全站不顯示 mailto 連結。之後要公開聯絡信箱再填。
+email = ""
 website = "https://polar-tsai.github.io/"
 github = "https://github.com/Polar-Tsai"
 avatar = "/images/logo-thin.webp"
 
 [[config.topNav.links]]
-label = "Home"
+label = "首頁"
 href = "/"
 
 [[config.topNav.links]]
-label = "Blog"
+label = "文章"
 href = "/blog"
 
 [[config.topNav.links]]
@@ -163,7 +164,7 @@ label = "Media"
 module = "media"
 
 [[config.topNav.links]]
-label = "About"
+label = "關於我"
 href = "/about"
 
 [config.home]

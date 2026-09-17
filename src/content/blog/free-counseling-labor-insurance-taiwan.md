@@ -1,6 +1,6 @@
 ---
 title: "Day 2. 政府免費的職涯心理諮商資源怎麼申請？"
-description: '需要一份勞保證明與找到一間可用政府補助的諮商所'
+description: "需要一份勞保證明與找到一間可用政府補助的諮商所"
 author: ''                     # 留空會自動用 site.toml 的 profile.name，只有代筆/共筆才需要填
 date: "2026-09-16T07:55:05.171Z"    # 發布日
 
@@ -19,7 +19,7 @@ showHeroImage: false
 ### 自己原創、只發在這裡的文章留空即可（會自動指向這頁自己）
 canonicalUrl: ''               
 tags: ["職涯"]
-categories: ["life"]
+categories: ["生活議題"]
 series: ["2026 IT 鐵人賽"]
 comments: true
 sidebar:

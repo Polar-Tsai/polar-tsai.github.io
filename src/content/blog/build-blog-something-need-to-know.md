@@ -19,7 +19,7 @@ showHeroImage: false
 ### 自己原創、只發在這裡的文章留空即可（會自動指向這頁自己）
 canonicalUrl: ''            
 tags: ["開發日記","非資工人"]
-categories: ["onsite"]
+categories: ["第一線議題"]
 series: []
 comments: true
 sidebar:
@@ -71,7 +71,7 @@ graph TD
 
 比方說主要管理網站的地方: site.toml，這裡就是主要修改設定的地方，當改了這裡，網站就會自動吃這裡的設定。然而下載了模板後，有如圖這麼多檔案，肯定眼花，因此記得，只要是為了將模板改成自己的，先從 `site.toml` 開始。
 
-!["部落格路徑"](../../assets/figure/blog/build-blog-something-need-to-know/01-toml.png)
+![部落格路徑](../../assets/figure/blog/build-blog-something-need-to-know/01-toml.png)
 
 > 什麼是：site.toml？
 常被用於靜態網站的模板工具，如：Astro, Hugo, Jekll

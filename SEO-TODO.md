@@ -175,21 +175,25 @@
 
 ## 🟡 次要（多為模板殘留）
 
-- [ ] **12.** `site.toml:7` 的 `repository` 仍指向模板作者的 repo `dodolalorc/astro-navfolio` — 每頁導覽列的 GitHub icon（`src/components/blog/BlogTopNav.astro:130`）會把訪客送去別人的專案
-- [ ] **13.** `site.toml:122,124` 的 `handle = "@navfolio"`、`email = "hello@navfolio.site"` — 全站作者卡片（`AuthorCard.astro`）與 mailto 連結（`Header.astro:34`）用的是模板假資料
-- [ ] **14.** `vercel.json` 的 `buildCommand` 是 `docs:build`，那是模板自己的文件站設定，不是這個部落格
-- [ ] **15.** `public/manifest.json` 的 name 仍是 `"navfolio"`；`public/site.webmanifest` 是沒人引用的孤兒檔（內容 `"MyWebSite"`），可刪
-- [ ] **16.** 分類命名體系不一致：categories 用英文小寫（`life`、`onsite`），tags 用中文。且 `onsite` 語意不明，SERP 上讀者看不懂
-- [ ] **17.** 主要區塊頁的描述是英文：`/blog`「Notes from the margins.」、`/projects`「Small tools and site systems.」、`/vibe`「Life and coding fragments.」——中文站的門面頁用英文描述，等於放棄中文搜尋流量
-- [ ] **18.** `src/content/blog/build-blog-something-need-to-know.md:74` 的圖片 alt 含多餘引號：`!["部落格路徑"](...)` 產出 `alt="&quot;部落格路徑&quot;"`，把引號拿掉即可
-- [ ] **19.** JSON-LD 的 author / publisher 是 `polarvista`（全小寫，來自 `site.toml:121`），跟品牌 `PolarVista` 不一致，影響 Google 對 Person 實體的識別一致性
+> ✅ 2026-09-17：12–19 全部處理完畢，細節如下。
+
+- [x] **12.** `repository` 改指向 `Polar-Tsai/polar-tsai.github.io`，導覽列的 GitHub icon 不再把訪客送去模板作者的專案
+- [x] **13.** `handle` 改為 `@Polar-Tsai`；`email` 先留空，全站的 mailto 連結會自動隱藏（`AuthorCard.astro`、`Header.astro` 已改成有填才顯示）。**✍️ 之後決定要公開哪個信箱時，填進 `site.toml` 的 `profile.email` 即可，不用改程式**
+- [x] **14.** 刪除 `vercel.json`（本站部署在 GitHub Pages，這是模板給自己文件站用的設定）
+- [x] **15.** `manifest.json` 改為 PolarVista、補上中文描述、主題色對齊站台底色；孤兒檔 `site.webmanifest` 已刪除
+- [x] **16.** 分類改成中文，與標籤一致：`onsite` → 第一線議題、`life` → 生活議題（另已備妥 錢錢議題、公共議題）。四篇文章的 frontmatter 與 `[config.descriptions.categories]` 的 key 一併更新
+- [x] **17.** 區塊頁文案全面中文化：`/blog`「文章」、分類頁「分類」、系列頁「系列」，導覽列改為 首頁／文章／關於我，搜尋框改為「搜尋文章…」
+- [x] **18.** 圖片 alt 多餘引號已移除
+- [x] **19.** `profile.name` 改為 `PolarVista`，JSON-LD 的 author／publisher 與品牌一致
 
 ---
 
-## 目前進度（2026-09-14）
+## 目前進度（2026-09-17）
 
-- ✅ 已完成：1–11
-- ⏳ 尚未開始：12–19（多為模板殘留，改動都很小）
+- ✅ 已完成：1–19（全部）
+- ✍️ 待你決定：公開聯絡信箱（第 13 項），決定後填入 `site.toml` 的 `profile.email`
+
+分類若之後新增（錢錢議題、公共議題），描述已先寫好，直接在文章 frontmatter 使用即可。
 
 ## 相關文件
 

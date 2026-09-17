@@ -8,7 +8,7 @@ sticky: false
 heroImage: '../../assets/figure/blog/just-use-common-sense/cover.jpg'
 showHeroImage: true
 tags: ["職涯"]
-categories: ["life"]
+categories: ["生活議題"]
 series: []
 comments: true
 sidebar:

@@ -15,9 +15,13 @@ const { profile } = await getSiteConfig();
     <a href={profile.github} aria-label="GitHub">
       <Github size={16} />
     </a>
-    <a href={`mailto:${profile.email}`} aria-label="Email">
-      <Mail size={16} />
-    </a>
+    {
+      profile.email && (
+        <a href={`mailto:${profile.email}`} aria-label="Email">
+          <Mail size={16} />
+        </a>
+      )
+    }
     <a href="/rss.xml" aria-label="RSS">
       <Rss size={16} />
     </a>

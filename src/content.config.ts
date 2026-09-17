@@ -401,7 +401,8 @@ const siteConfig = defineCollection({
       name: z.string(),
       handle: z.string(),
       role: z.string(),
-      email: z.email(),
+      // Empty = no public contact address; the mailto links are hidden instead.
+      email: z.union([z.email(), z.literal('')]),
       website: z.url(),
       github: z.url(),
       avatar: z.string(),

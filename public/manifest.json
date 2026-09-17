@@ -1,11 +1,11 @@
 {
-  "name": "navfolio",
-  "short_name": "navfolio",
-  "description": "A personal navigation portfolio starter built with Astro.",
+  "name": "PolarVista",
+  "short_name": "PolarVista",
+  "description": "喜歡觀察生活事物，並將好奇心具現化，然後一一寫成文字。",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#fdfdf9",
+  "theme_color": "#fdfdf9",
   "icons": [
     {
       "src": "/android-icon-36x36.png",
