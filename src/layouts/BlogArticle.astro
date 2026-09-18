@@ -14,6 +14,7 @@ import { getThemePalette, getSiteConfig } from '../data/site';
 import { resolveCommentsConfig, supportsCommentSection } from '../utils/comments';
 import { sortByDateDesc } from '../utils/content-dates';
 import { getSeriesContext, slugifyGroupName } from '../utils/content-groups';
+import { getSocialImageSrc } from '../utils/social-image';
 import { buildTocTree, countTocItems } from '../utils/toc-tree';
 import { getUiText } from '../utils/ui-text';
 import '@navfolio/theme-default/styles/blog-article.css';
@@ -156,10 +157,7 @@ const hasSidebar = shouldRenderSidebar && hasToc;
 
 const articleImageSource = ogImage || heroImage || undefined;
 const articleImageUrl = articleImageSource
-  ? new URL(
-      typeof articleImageSource === 'string' ? articleImageSource : articleImageSource.src,
-      Astro.url,
-    ).toString()
+  ? new URL(await getSocialImageSrc(articleImageSource), Astro.url).toString()
   : undefined;
 ---
 

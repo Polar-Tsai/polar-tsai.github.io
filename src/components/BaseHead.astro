@@ -11,6 +11,7 @@ import { ClientRouter } from 'astro:transitions';
 import FallbackImage from '../assets/figure/fail-loading-image.png';
 import Analytics from './Analytics.astro';
 import { getSiteConfig } from '../data/site';
+import { getSocialImageSrc } from '../utils/social-image';
 
 interface Props {
   title: string;
@@ -30,7 +31,7 @@ const canonicalURL = canonicalUrl ? new URL(canonicalUrl) : new URL(Astro.url.pa
 const assetPath = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
 const resolvedImage = image || FallbackImage;
-const imageUrl = typeof resolvedImage === 'string' ? resolvedImage : resolvedImage.src;
+const imageUrl = await getSocialImageSrc(resolvedImage);
 const fontVariablesCss = createFontCss(fonts);
 
 function stripControlChars(value: string) {
