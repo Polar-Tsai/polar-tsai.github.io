@@ -47,7 +47,7 @@ sidebar:
 
 還記得小時候(2003年)從課本學到的，就是非洲小朋友**都**餓到皮包骨，只能用極少麵粉裹著泥沙做成餅止飢。但其實現在2022年了，可以從這位來自甘比亞的YouTuber回甘比亞所拍的影片可以看到，生活機能已經大有進展。
 
-![挖洗黑龍影片](../../assets/figure/blog/build-blog-on-sharepoint/01.png)
+![挖洗黑龍影片](../../assets/figure/blog/factfulness-reading-reflaction/01.png)
 
 ## 四個所得分級(p.46)
 
