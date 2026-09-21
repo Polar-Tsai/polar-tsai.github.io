@@ -10,7 +10,7 @@ date: "2026-09-21T06:09:31.444Z"    # 發布日
 updatedDate: ''
 draft: false
 sticky: false
-heroImage: '../../assets/figure/blog/letting-go-like-mayaw-ciru/cover.jpg'
+heroImage: '../../assets/figure/blog/letting-go-like-mayaw-ciru/cover.png'
 showHeroImage: true
 tags: ["職涯"]
 categories: ["生活議題"]
