@@ -1,5 +1,5 @@
 ---
-title: "letting-go-like-mayaw-ciru"
+title: "Day 7. 九局下的高飛球，以及未能落地的專案"
 description: "陳鏞基最後一場的引退賽，臨門一腳的打擊，讓我想起我曾經的一項專案。盡力過了，就也放過自己吧。"
 author: ''                     # 留空會自動用 site.toml 的 profile.name，只有代筆/共筆才需要填
 date: "2026-09-21T06:09:31.444Z"    # 發布日
