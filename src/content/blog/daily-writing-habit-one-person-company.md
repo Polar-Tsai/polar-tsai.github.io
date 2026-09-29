@@ -8,7 +8,7 @@ date: "2026-09-29T06:23:03.093Z"    # 發布日
 ### 會顯示在發布日期後面，並寫進 article:modified_time 與 JSON-LD 的 dateModified，
 ### 讓讀者與 AI/搜尋引擎判斷新鮮度
 updatedDate: ''
-draft: true
+draft: false
 sticky: false
 heroImage: '../../assets/figure/blog/daily-writing-habit-one-person-company/cover.png'
 showHeroImage: true
