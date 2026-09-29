@@ -25,12 +25,10 @@ sidebar:
   relatedPosts: true
 ---
 
-<aside>
-💡
-本篇文章所需工具
-1. Visual Studio Code，或任何你習慣的程式編輯器、Terminal
-2. Claude Code Pro 授權以上的帳號
-</aside>
+
+> 本篇文章所需工具
+> 1. Visual Studio Code，或任何你習慣的程式編輯器、Terminal
+> 2. Claude Code Pro 授權以上的帳號
 
 近期看到這篇文章：[幫產品去除 AI 味的方法：人類應該奉行減法哲學，用品味刪除不必要的產出](https://abmedia.io/how-i-design-with-ai-taste)，文章內容大概是這樣的：
 
