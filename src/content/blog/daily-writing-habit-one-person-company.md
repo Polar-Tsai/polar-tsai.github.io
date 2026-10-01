@@ -11,8 +11,8 @@ updatedDate: ''
 draft: false
 sticky: false
 heroImage: '../../assets/figure/blog/daily-writing-habit-one-person-company/cover.png'
-showHeroImage: true
-tags: ["職涯"]
+showHeroImage: false
+tags: ["職涯","觀後感"]
 categories: ["生活議題"]
 series: []
 comments: true
