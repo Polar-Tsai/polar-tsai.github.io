@@ -61,7 +61,7 @@ sidebar:
 請參考：
 1. [Re: [閒聊] 能期待有個統一獅app嗎？](https://www.ptt.cc/bbs/Lions/M.1629487428.A.1E4.html) 
 2. [[閒聊] 能期待有個統一獅app嗎？](https://www.ptt.cc/bbs/Lions/M.1629486255.A.226.html)
-3. [Fw: [討論] 球隊沒有官網和App，真的不會怎樣嗎？](https://www.ptt.cc/bbs/Lions/M.1746463790.A.7DE.html）
+3. [Fw: [討論] 球隊沒有官網和App，真的不會怎樣嗎？](https://www.ptt.cc/bbs/Lions/M.1746463790.A.7DE.html)
 
 後續會一一分享 Prototype, 開發規劃、預期效果。
 
