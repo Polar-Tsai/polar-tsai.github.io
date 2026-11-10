@@ -18,7 +18,7 @@ showHeroImage: false
 ### 填入那個原始網址，會覆蓋這頁的 <link rel="canonical">，告訴搜尋引擎正本在那邊。
 ### 自己原創、只發在這裡的文章留空即可（會自動指向這頁自己）
 canonicalUrl: ''               
-tags: ["職涯","觀後感"]
+tags: ["職涯","心得","書籍"]
 categories: ["生活議題"]
 series: []
 comments: true

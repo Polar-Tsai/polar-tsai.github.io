@@ -115,5 +115,6 @@ bun run format:check
 - [ ] 有設定 `ogImage`（或至少有 `heroImage` 可 fallback），且**不是跟其他文章共用同一張圖**
 - [ ] 正文有用 H2/H3 分段，不是整篇平舖直敘
 - [ ] `tags` / `categories` 有填，且跟既有分類一致（可先看 `/blog/categories`、`/blog/tags` 有哪些既有分類，避免同義詞打散流量）
+- [ ] 書籍、電影等閱聽心得統一用 `心得` tag，再加媒材 tag（`書籍`／`電影`），例如 `tags: ["心得","書籍"]`；標題可依習慣寫「讀後感」或「觀後感」
 - [ ] 純原創文章 `canonicalUrl` 留空；轉載/同步發布才填來源網址
 - [ ] `draft: false`
