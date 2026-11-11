@@ -8,7 +8,7 @@ date: "2026-11-11T00:58:46.146Z"    # 發布日
 ### 會顯示在發布日期後面，並寫進 article:modified_time 與 JSON-LD 的 dateModified，
 ### 讓讀者與 AI/搜尋引擎判斷新鮮度
 updatedDate: ''
-draft: false
+draft: true
 sticky: false
 heroImage: '../../assets/figure/blog/test/cover.jpg'
 ogImage: ''                    # 社群分享用的預覽圖，留空會自動 fallback 用 heroImage，兩者都沒有才用全站預設圖
