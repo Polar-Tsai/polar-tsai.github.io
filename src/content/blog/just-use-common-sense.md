@@ -3,7 +3,7 @@ title: "好的工作就是用常識做事"
 description: '從外商轉戰傳產後，眼看開放自由的工作氛圍被景氣壓力打回原形。當常識判斷被辦公室政治綁架，一個內向者的職場內耗紀錄與反思。'
 date: "2026-08-24T23:25:27.804Z"
 updatedDate: "2026-08-26T06:31:27.804Z"
-draft: false
+draft: true
 sticky: false
 heroImage: '../../assets/figure/blog/just-use-common-sense/cover.jpg'
 showHeroImage: true
