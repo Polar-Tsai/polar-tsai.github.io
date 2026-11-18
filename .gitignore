@@ -30,3 +30,10 @@ AGENTS.md
 scripts/fonts/ui-chars.txt
 public/fonts/*-subset.woff2
 public/friend-circle.json
+
+# EEAT 教練的寫作壞習慣紀錄（私人）
+.claude/eeat/writing-habits.md
+
+# 本機文章後台執行檔（bun run admin:build 產生）
+文章後台.exe
+PolarVistaEditor.exe

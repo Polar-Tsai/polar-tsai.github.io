@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>文章後台</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <header class="sidebar-head">
+          <h1>文章後台</h1>
+          <button id="new-post" class="btn primary" type="button">＋ 新文章</button>
+        </header>
+        <input id="search" class="search" type="search" placeholder="搜尋標題、slug、標籤…" />
+        <div class="filters" role="group" aria-label="篩選">
+          <button type="button" data-filter="all" class="active">全部</button>
+          <button type="button" data-filter="published">已發布</button>
+          <button type="button" data-filter="draft">草稿</button>
+          <button type="button" data-filter="uncommitted">未提交</button>
+        </div>
+        <ul id="post-list" class="post-list"></ul>
+        <footer id="git-status" class="git-status"></footer>
+      </aside>
+
+      <main class="main">
+        <div id="empty" class="empty">從左邊選一篇文章，或建立新文章。</div>
+
+        <section id="editor" class="editor" hidden>
+          <header class="toolbar">
+            <div class="toolbar-title">
+              <span id="status-badge" class="badge"></span>
+              <strong id="doc-title"></strong>
+              <code id="doc-path"></code>
+              <span id="dirty" class="dirty" hidden>● 未存檔</span>
+            </div>
+            <div class="toolbar-actions">
+              <button id="toggle-meta" class="btn" type="button" aria-expanded="true">
+                文章設定
+              </button>
+              <button id="save" class="btn" type="button" title="Ctrl+S">存檔</button>
+              <button id="push-post" class="btn" type="button"></button>
+              <button id="unpublish" class="btn danger" type="button">下架</button>
+              <button id="publish" class="btn primary" type="button">發布</button>
+            </div>
+          </header>
+
+          <form id="meta" class="meta" autocomplete="off">
+            <label class="field wide">
+              <span>標題 title</span>
+              <input name="title" type="text" />
+            </label>
+            <label class="field wide">
+              <span>摘要 description <small id="desc-count"></small></span>
+              <textarea name="description" rows="2"></textarea>
+            </label>
+            <label class="field">
+              <span>發布日 date</span>
+              <input name="date" type="datetime-local" />
+            </label>
+            <label class="field">
+              <span>更新日 updatedDate <small>大改內容才填</small></span>
+              <span class="inline">
+                <input name="updatedDate" type="datetime-local" />
+                <button type="button" class="btn small" data-now="updatedDate">現在</button>
+                <button type="button" class="btn small" data-clear="updatedDate">清除</button>
+              </span>
+            </label>
+            <div class="field wide">
+              <span>標籤 tags <small>閱聽心得用「心得」＋媒材（書籍／電影）</small></span>
+              <div class="chips" data-chips="tags"></div>
+            </div>
+            <div class="field">
+              <span>分類 categories</span>
+              <div class="chips" data-chips="categories"></div>
+            </div>
+            <div class="field">
+              <span>系列 series</span>
+              <div class="chips" data-chips="series"></div>
+            </div>
+            <div class="field wide image-field">
+              <span>首圖 heroImage <small>1200×630、300KB 以下</small></span>
+              <span class="inline">
+                <input
+                  name="heroImage"
+                  type="text"
+                  placeholder="../../assets/figure/blog/<slug>/cover.png"
+                />
+                <button type="button" class="btn small" data-upload-cover>上傳封面</button>
+              </span>
+              <img id="hero-thumb" class="thumb" alt="" hidden />
+            </div>
+            <label class="field wide">
+              <span>分享圖 ogImage <small>留空會用 heroImage</small></span>
+              <input name="ogImage" type="text" />
+            </label>
+            <label class="field">
+              <span>作者 author <small>留空＝本人</small></span>
+              <input name="author" type="text" />
+            </label>
+            <label class="field">
+              <span>canonicalUrl <small>只有轉載才填</small></span>
+              <input name="canonicalUrl" type="url" />
+            </label>
+            <div class="field wide toggles">
+              <label><input name="showHeroImage" type="checkbox" /> 文章頁顯示首圖</label>
+              <label><input name="sticky" type="checkbox" /> 置頂</label>
+              <label><input name="comments" type="checkbox" /> 開放留言</label>
+              <label><input name="sidebar.toc" type="checkbox" /> 目錄 TOC</label>
+              <label><input name="sidebar.relatedPosts" type="checkbox" /> 相關文章</label>
+            </div>
+          </form>
+
+          <div class="panes">
+            <div class="pane">
+              <div class="pane-tools">
+                <button id="insert-image" class="btn small" type="button">插入圖片</button>
+                <span class="hint">也可以直接貼上或拖曳圖片到編輯區</span>
+              </div>
+              <textarea id="body" class="body" spellcheck="false"></textarea>
+            </div>
+            <div class="pane preview-pane">
+              <div class="pane-tools"><span class="hint" id="preview-note">預覽</span></div>
+              <article id="preview" class="prose"></article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="new-dialog">
+      <form method="dialog" class="dialog">
+        <h2>新文章</h2>
+        <label class="field">
+          <span>標題</span>
+          <input name="title" type="text" required />
+        </label>
+        <label class="field">
+          <span>slug <small>網址與檔名，小寫英文、數字、-</small></span>
+          <input name="slug" type="text" required pattern="[a-z0-9][a-z0-9\-]*" />
+        </label>
+        <label class="toggles"
+          ><input name="mdx" type="checkbox" /> 使用 .mdx（需要互動元件時）</label
+        >
+        <p class="error" data-error></p>
+        <footer>
+          <button class="btn" value="cancel" formnovalidate>取消</button>
+          <button class="btn primary" value="ok">建立草稿</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog id="publish-dialog">
+      <form method="dialog" class="dialog wide">
+        <h2 data-heading></h2>
+        <ul class="checks errors" data-errors></ul>
+        <ul class="checks warnings" data-warnings></ul>
+        <p class="ok" data-ok hidden>發文前檢查全部通過。</p>
+        <label class="field">
+          <span>commit 訊息</span>
+          <input name="message" type="text" />
+        </label>
+        <label class="toggles" data-touch-wrap>
+          <input name="touchUpdatedDate" type="checkbox" /> 把 updatedDate 設成現在（大改內容時）
+        </label>
+        <pre class="log" data-log hidden></pre>
+        <footer>
+          <button class="btn" value="cancel" formnovalidate>關閉</button>
+          <button class="btn primary" value="ok" data-confirm>確認</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <input id="file-input" type="file" accept="image/*" hidden />
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

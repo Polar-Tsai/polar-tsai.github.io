@@ -20,6 +20,8 @@
     "project:new": "bun scripts/new-content.ts project",
     "vibe:new": "bun scripts/new-content.ts vibe",
     "media:new": "bun scripts/new-content.ts media",
+    "admin": "bun scripts/admin/server.ts",
+    "admin:build": "bun build scripts/admin/server.ts --compile --outfile 文章後台.exe",
     "lint": "eslint .",
     "format": "prettier --write --ignore-unknown .",
     "format:check": "bun run lint && prettier --check --ignore-unknown ."
@@ -56,10 +58,12 @@
     "@typescript/native": "npm:typescript@^7.0.2",
     "husky": "^9.1.7",
     "lint-staged": "^17.1.1",
+    "marked": "16.4.2",
     "pagefind": "^1.5.2",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.2",
+    "yaml": "2.9.0"
   },
   "lint-staged": {
     "*": "bun run format:check"

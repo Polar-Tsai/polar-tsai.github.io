@@ -2,6 +2,29 @@
 
 每次要發一篇新的 blog 文章時，照這份清單走一遍。
 
+## 用本機後台寫文章（選用）
+
+```bash
+bun run admin
+```
+
+啟動後會自動打開 <http://localhost:4322>。
+
+不想開終端機的話，可以先執行 `bun run admin:build`，在 repo 根目錄產生 `文章後台.exe`。之後雙擊這個檔案就能啟動，視窗關掉就會結束後台。如果後台已經開著，再雙擊一次只會打開瀏覽器。
+
+- exe 必須放在 repo 根目錄，想放到桌面請建立捷徑。
+- 改了 `scripts/admin/ui/` 底下的介面，不用重新 build；改了 `scripts/admin/*.ts`，要再跑一次 `bun run admin:build`。
+
+下面這份 SOP 的步驟都能在介面上完成：
+
+- **新文章**：輸入標題和 slug，會用同一份模板（`scripts/templates/post.md`）建立草稿。
+- **文章設定**：用表單編輯 frontmatter，標籤、分類、系列會列出既有值供選擇。只會改動你有修改的欄位，原本的引號和註解都會保留。
+- **編輯與預覽**：左邊寫 Markdown，右邊即時預覽；按 `Ctrl+S` 存檔。
+- **圖片**：用「上傳封面」或在編輯區貼上、拖曳圖片，會照下面「圖片歸檔」的規則存到 `src/assets/figure/blog/<slug>/`。
+- **發布、下架、推送**：會先跑「發文前 SEO/AEO 檢查表」，再只 commit 這篇文章和它的圖片資料夾，然後 push。pre-commit 的格式檢查照常執行。
+
+後台只綁定在 `127.0.0.1`，只有這台電腦能使用。程式碼在 `scripts/admin/`。
+
 ## 1. 建立文章檔案
 
 ```bash
