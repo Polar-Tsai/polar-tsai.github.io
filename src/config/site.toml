@@ -5,7 +5,7 @@ pageTitle = "PolarVista | 把好奇心具現化，把觀察與經歷寫成文字
 pageDescription = "喜歡觀察生活上的困難並試圖解決它，實作過程都會記錄在此。涵蓋公共議題、開發日記、第一線問題，還有理財筆記。"
 url = "https://polar-tsai.github.io/"
 repository = "https://github.com/Polar-Tsai/polar-tsai.github.io"
-footerNote = "© 2026 PolarVista. Built with curiosity."
+footerNote = "Built with curiosity."
 
 [config.theme]
 # 可用色盘：
@@ -85,9 +85,9 @@ note = "Not formal enough for blog posts, but still part of the story."
 showTrail = true
 
 [config.pages.media]
-title = "书影音"
-subtitle = "读过、看过、听过的作品，以及一点当时的感受。"
-note = "一页浏览书、电影、剧集、专辑与播客。"
+title = ""
+subtitle = ""
+note = ""
 
 # 分類／標籤／系列頁的 meta description（會出現在 Google 搜尋結果）
 # key 用「顯示名稱」（跟文章 frontmatter 裡寫的一樣）；沒寫的會自動用該分類下的文章標題產生。
@@ -135,10 +135,9 @@ comment = true
 
 [config.profile]
 name = "PolarVista"
-handle = "@Polar-Tsai"
+handle = ""
 role = "Build Something Cool"
-# 留空 = 全站不顯示 mailto 連結。之後要公開聯絡信箱再填。
-email = ""
+email = "polarvista.tw@gmail.com"
 website = "https://polar-tsai.github.io/"
 github = "https://github.com/Polar-Tsai"
 avatar = "/images/logo-thin.webp"
@@ -178,12 +177,12 @@ text = [
 title = "Polar Vista"
 name = "Polar Vista"
 body = [
+  "這個名字融合了「Polar」與「Vista」。",
+  "Polar 是我的英文名字；Vista 是視野、是眺望遠方的景色。",
+  "PolarVista，是我把好奇心具現化，把觀察與經歷寫成文字，留在這個網路世界裡。",
   "The name combines \"Polar\" and \"Vista\".",
   "\"Polar\" is my English name; \"Vista\" is the view you see when you look far ahead.",
   "PolarVista is where my curiosity takes shape — where what I observe and experience becomes words, and stays.",
-  "這個名字融合了「Polar」與「Vista」。",
-  "Polar 是我的英文名字；Vista 是視野、是眺望遠方的景色。",
-  "PolarVista，是我把好奇心具現化，把觀察與經歷寫成文字，留在這個網路世界裡。"
 ]
 
 [config.home.latest]
@@ -245,14 +244,8 @@ copy = true
 [[config.home.links]]
 label = "Email"
 icon = "mail"
-tooltip = ""
+tooltip = "polarvista.tw@gmail.com"
 copy = true
-
-[[config.home.links]]
-label = "Weibo"
-icon = "weibo"
-tooltip = "" # 留一個放 ithome
-copy = false
 
 # 網站分析與搜尋引擎驗證。留空 = 停用該項目，填了才會載入。
 # 取得 ID 與驗證碼的步驟見 ANALYTICS.md。

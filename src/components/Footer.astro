@@ -1,8 +1,89 @@
 ---
-import ThemeFooter from '@navfolio/theme-default/components/Footer.astro';
+// 以 @navfolio/theme-default 的 Footer 為基礎改寫：
+// - 版權行寫成單行，修正「2026PolarVista」少空格
+// - 加上原主題作者署名
+// - email 留空時不顯示信封圖示
+import { Compass, Github, Mail } from 'lucide-astro';
 import { getSiteConfig } from '../data/site';
 
 const { profile, site } = await getSiteConfig();
+const year = new Date().getFullYear();
 ---
 
-<ThemeFooter site={site} profile={profile} />
+<footer>
+  <p class="copyright">{`© ${year} ${site.title}. ${site.footerNote}`}</p>
+  <p class="credit">
+    主題來自
+    <a href="https://github.com/dodolalorc/astro-navfolio" target="_blank" rel="noreferrer"
+      >astro-navfolio</a
+    >，由
+    <a href="https://github.com/dodolalorc" target="_blank" rel="noreferrer">dodolalorc</a>
+    設計
+  </p>
+  <div class="social-links">
+    <a href={profile.website} target="_blank" rel="noreferrer">
+      <span class="sr-only">Open website</span>
+      <Compass size={18} stroke-width={1.9} aria-hidden="true" focusable="false" />
+    </a>
+    <a href={profile.github} target="_blank" rel="noreferrer">
+      <span class="sr-only">Open GitHub profile</span>
+      <Github size={18} stroke-width={1.9} aria-hidden="true" focusable="false" />
+    </a>
+    {
+      profile.email && (
+        <a href={`mailto:${profile.email}`}>
+          <span class="sr-only">Email</span>
+          <Mail size={18} stroke-width={1.9} aria-hidden="true" focusable="false" />
+        </a>
+      )
+    }
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: 3em 1em 6em;
+    color: var(--paper-ink-faint);
+    font-size: 0.88rem;
+    text-align: center;
+  }
+
+  footer p {
+    margin: 0;
+  }
+
+  .credit {
+    margin-top: 0.4em;
+    font-size: 0.8rem;
+  }
+
+  .credit a {
+    color: var(--paper-ink-soft);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .credit a:hover {
+    color: var(--paper-accent);
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+  }
+
+  .social-links a {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    color: var(--paper-ink-soft);
+    text-decoration: none;
+  }
+
+  .social-links a:hover {
+    color: var(--paper-accent);
+  }
+</style>
